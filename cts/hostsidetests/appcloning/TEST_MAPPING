@@ -1,0 +1,17 @@
+{
+  "presubmit": [
+    {
+      "name": "CtsAppCloningHostTest",
+      "options": [
+        {
+          "exclude-annotation": "android.platform.test.annotations.LargeTest"
+        }
+      ]
+    }
+  ],
+  "postsubmit": [
+    {
+      "name": "CtsAppCloningHostTest"
+    }
+  ]
+}

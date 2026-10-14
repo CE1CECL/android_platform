@@ -1,0 +1,18 @@
+{
+  "presubmit": [
+    {
+      "name": "CtsAslrMallocTestCases"
+    }
+  ],
+  "kernel-presubmit": [
+    {
+      "name": "CtsAslrMallocTestCases",
+      "options": [
+        {
+          // TODO(b/254683164)
+          "exclude-filter": "AslrMallocTest#testMallocRandomization"
+        }
+      ]
+    }
+  ]
+}

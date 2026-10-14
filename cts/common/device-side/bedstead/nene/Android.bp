@@ -1,0 +1,142 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+java_library_host {
+    name: "NeneCommon",
+    srcs: [
+        "common/src/main/java/**/*.java"
+    ],
+}
+
+android_library {
+    name: "NeneCommonAndroid",
+    srcs: [
+        "common/src/main/java/**/*.java"
+    ],
+    manifest: "src/main/AndroidManifestInternal.xml",
+    min_sdk_version: "29"
+}
+
+// TODO(b/203507664): Remove NeneInternal once we no longer need QUERY_ALL_PACKAGES to install
+android_library {
+    name: "NeneInternal",
+    sdk_version: "test_current",
+    srcs: [
+        "src/main/java/**/*.java"
+    ],
+    manifest: "src/main/AndroidManifestInternal.xml",
+    static_libs: [
+        "compatibility-device-util-axt",
+        "guava",
+        "Queryable",
+        "NeneCommonAndroid",
+        "RemoteFrameworkClasses",
+        "androidx.test.uiautomator_uiautomator",
+    ],
+    min_sdk_version: "29"
+}
+
+android_library {
+    name: "Nene",
+    sdk_version: "test_current",
+    srcs: [
+        "src/main/java/**/*.java"
+    ],
+    manifest: "src/main/AndroidManifest.xml",
+    static_libs: [
+        "compatibility-device-util-axt",
+        "guava",
+        "Queryable",
+        "NeneCommonAndroid",
+        "RemoteFrameworkClasses",
+        "androidx.test.uiautomator_uiautomator",
+    ],
+    min_sdk_version: "29"
+}
+
+android_test {
+    name: "NeneTest",
+    srcs: [
+        "src/test/java/**/*.java",
+    ],
+    test_suites: [
+        "general-tests",
+    ],
+    static_libs: [
+        "Interactive",
+        "TestApp",
+        "Nene",
+        "EventLib",
+        "Harrier",
+        "androidx.test.ext.junit",
+        "ctstestrunner-axt",
+        "compatibility-device-util-axt",
+        "truth-prebuilt",
+        "testng" // for assertThrows
+    ],
+    data: [":NeneTestApp1"],
+    manifest: "src/test/AndroidManifest.xml",
+    min_sdk_version: "29"
+}
+
+android_test {
+    name: "InteractiveNeneTest",
+    srcs: [
+        "src/test/java/**/*.java",
+    ],
+    test_suites: [
+        "general-tests",
+    ],
+    static_libs: [
+        "Interactive",
+        "TestApp",
+        "Nene",
+        "EventLib",
+        "Harrier",
+        "androidx.test.ext.junit",
+        "ctstestrunner-axt",
+        "compatibility-device-util-axt",
+        "truth-prebuilt",
+        "testng" // for assertThrows
+    ],
+    data: [":NeneTestApp1"],
+    manifest: "src/test/AndroidManifest.xml",
+    min_sdk_version: "29",
+    test_config: "InteractiveAndroidTest.xml"
+}
+
+android_test {
+    name: "NeneBenchmarks",
+    srcs: [
+        "src/benchmarks/java/**/benchmarks/*.java",
+        "src/benchmarks/java/**/benchmarks/*.proto",
+    ],
+    test_suites: [
+        "general-tests",
+    ],
+    static_libs: [
+        "TestApp",
+        "Nene",
+        "EventLib",
+        "Harrier",
+        "androidx.benchmark_benchmark-common",
+        "androidx.benchmark_benchmark-junit4",
+        "androidx.test.ext.junit",
+        "ctstestrunner-axt",
+        "compatibility-device-util-axt",
+        "collector-device-lib",
+    ],
+    manifest: "src/benchmarks/AndroidManifest.xml",
+    test_config: "src/benchmarks/AndroidTest.xml",
+    min_sdk_version: "29"
+}
+
+android_test_helper_app {
+    name: "NeneTestApp1",
+    static_libs: [
+        "EventLib"
+    ],
+    manifest: "testapps/TestApp1.xml",
+    min_sdk_version: "29"
+}
