@@ -1,0 +1,11 @@
+<mixer>
+    <!-- Enable HDMI out for db845c -->
+    <path name="hdmi_db845c">
+        <ctl name="QUAT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+
+    <!-- Enable HDMI out for rb5 -->
+    <path name="hdmi_rb5">
+        <ctl name="TERT_MI2S_RX Audio Mixer MultiMedia1" value="1" />
+    </path>
+</mixer>
