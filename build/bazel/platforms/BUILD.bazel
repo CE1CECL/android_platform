@@ -1,0 +1,18 @@
+# Common target platforms for Android Platform builds.
+#
+# Platforms represent distinct hardware environments:
+#
+#   - CPU architecture
+#   - Hardware capabilities
+#   - Firmware differences
+#
+# Platforms do NOT represent different software packages, that is the
+# reposibility of the top-level targets being built.
+#
+# These model after the arch and OS definitions in build/soong/android/arch.go.
+
+load(":platform_utils.bzl", "platform_utils")
+
+package(default_visibility = ["//visibility:public"])
+
+platform_utils(name = "platform_utils")

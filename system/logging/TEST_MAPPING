@@ -1,0 +1,27 @@
+{
+  "presubmit": [
+    {
+      "name": "CtsLiblogTestCases"
+    },
+    {
+      "name": "CtsLogdTestCases"
+    },
+    {
+      "name": "logd_integration_test"
+    },
+    {
+      "name": "MicrodroidHostTestCases"
+    }
+  ],
+  "hwasan-postsubmit": [
+    {
+      "name": "CtsLiblogTestCases"
+    },
+    {
+      "name": "CtsLogdTestCases"
+    },
+    {
+      "name": "MicrodroidHostTestCases"
+    }
+  ]
+}
