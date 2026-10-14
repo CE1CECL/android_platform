@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+** Copyright 2016, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         Wifi interfaces.  If the device doesn't want to support tethering over Wifi this
+         should be empty.  An example would be "softap.*" -->
+    <string-array translatable="false" name="config_tether_wifi_regexs">
+        <item>"wlan0"</item>
+        <item>"softap.*"</item>
+    </string-array>
+
+    <!-- List of regexpressions describing the interface (if any) that represent tetherable
+         Wifi P2P interfaces.  If the device doesn't want to support tethering over Wifi P2p this
+         should be empty.  An example would be "p2p-p2p.*" -->
+    <string-array translatable="false" name="config_tether_wifi_p2p_regexs">
+        <item>"p2p-p2p\\d-.*"</item>
+    </string-array>
+
+    <!-- Enable doze mode
+         ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
+    <string translatable="false" name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
+
+    <!-- Type of the ambient tap sensor. Empty if ambient tap is not supported. -->
+    <string name="config_dozeTapSensorType" translatable="false">com.google.sensor.single_touch</string>
+
+    <!-- MMS user agent string -->
+    <string name="config_mms_user_agent" translatable="false">gd1yq</string>
+    <!-- MMS user agent profile url -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://www.gstatic.com/android/sms/GD1YQ.xml</string>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+      in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
+      config_screenBrightnessMaximumNits, the display brightness is defined as the measured
+      brightness of an all-white image.
+
+      If this is defined then:
+      - config_autoBrightnessLcdBacklightValues should not be defined
+      - config_screenBrightnessNits must be defined
+      - config_screenBrightnessBacklight must be defined
+
+      This array should have size one greater than the size of the config_autoBrightnessLevels
+      array. The brightness values must be non-negative and non-decreasing. This must be
+      overridden in platform specific overlays -->
+    <array name="config_autoBrightnessDisplayValuesNits">
+      <item>5.139055</item>       <!--  0 - 1 -->
+      <item>9.962018965</item>    <!--  1 - 2 -->
+      <item>18.34822964</item>    <!--  2 - 3 -->
+      <item>21.55068128</item>    <!--  3 - 4 -->
+      <item>24.0167788</item>     <!--  4 - 8 -->
+      <item>30.62162162</item>    <!--  8 - 12 -->
+      <item>35.09486396</item>    <!--  12 - 20 -->
+      <item>41.2249643</item>     <!--  20 - 33 -->
+      <item>47.6760716</item>     <!--  33 - 55 -->
+      <item>55.73002427</item>    <!--  55 - 90 -->
+      <item>66.24126116</item>    <!--  90 - 148 -->
+      <item>79.67614115</item>    <!--  148 - 245 -->
+      <item>98.04727274</item>    <!--  245 - 403 -->
+      <item>125.1221991</item>    <!--  403 - 665 -->
+      <item>161.6875093</item>    <!--  665 - 1097 -->
+      <item>208.4885553</item>    <!--  1097 - 1808 -->
+      <item>264.8221315</item>    <!--  1808 - 2981 -->
+      <item>327.8974352</item>    <!--  2981 - 5000 -->
+      <item>401.1676739</item>    <!--  5000 - 10000 -->
+      <item>600.0</item>          <!--  10000+ -->
+    </array>
+
+    <!-- Minimum screen brightness allowed by the power manager. -->
+    <integer name="config_screenBrightnessDim">6</integer>
+
+    <!-- Screen brightness when dozing. -->
+    <integer name="config_screenBrightnessDoze">34</integer>
+
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Disable AOD by default -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
+    <!-- True if the display hardware only has brightness buckets rather than a full range of
+         backlight values -->
+    <bool name="config_displayBrightnessBucketsInDoze">true</bool>
+
+    <!-- Default screen brightness for VR setting. Target default value: 0x0BB for EVT1.1. -->
+    <!-- 8 bit brightness level of 6 corresponds to the 10 bit brightness level of 0x0B6,
+         8 bit brightness level of 7 corresponds to the 10 bit brightness level of 0x0C1 on EVT1.1. -->
+    <integer name="config_screenBrightnessForVrSettingDefault">7</integer>
+    <integer name="config_screenBrightnessForVrSettingMinimum">6</integer>
+    <integer name="config_screenBrightnessForVrSettingMaximum">7</integer>
+
+    <!-- Minimum screen brightness setting allowed by power manager.
+         The user is forbidden from setting the brightness below this level. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         The user is forbidden from setting the brightness above this level -->
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting
+         Must be in the range specified by minimum and maximum. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.29019607843</item>
+
+    <!-- An array describing the screen's backlight values corresponding to the brightness
+         values in the config_screenBrightnessNits array.
+
+         This array should be equal in size to config_screenBrightnessBacklight. -->
+    <integer-array name="config_screenBrightnessBacklight">
+        <item>1</item>
+        <item>255</item>
+    </integer-array>
+
+    <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
+         values in the config_screenBrightnessBacklight array.  On OLED displays these  values
+         should be measured with an all white image while the display is in the fully on state.
+         Note that this value should *not* reflect the maximum brightness value for any high
+         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
+
+         This array should be equal in size to config_screenBrightnessBacklight -->
+    <array name="config_screenBrightnessNits">
+        <item>2.0</item>
+        <item>500.0</item>
+    </array>
+
+    <!-- Nonlinear coefficients for maximum panel brightness of 500 nits -->
+    <string-array name="config_reduceBrightColorsCoefficientsNonlinear">
+        <!-- a-coefficient --> <item>-0.4553233597</item>
+        <!-- b-coefficient --> <item>-0.2380196976</item>
+        <!-- y-intercept --> <item>0.9801096801</item>
+    </string-array>
+
+    <!-- Linear coefficients for maximum panel brightness of 500 nits -->
+    <string-array name="config_reduceBrightColorsCoefficients">
+        <!-- a-coefficient --> <item>0.0</item>
+        <!-- b-coefficient --> <item>-0.96</item>
+        <!-- y-intercept --> <item>1.0</item>
+    </string-array>
+
+    <!-- The nominal white coordinates, in CIE1931 XYZ color space, for Display White Balance to
+         use in its calculations. AWB will adapt this white point to the target ambient white
+         point. The array must include a total of 3 float values (X, Y, Z) -->
+    <string-array name="config_displayWhiteBalanceDisplayNominalWhite">
+        <!-- Nominal White X --> <item>0.950352</item>
+        <!-- Nominal White Y --> <item>1.0     </item>
+        <!-- Nominal White Z --> <item>1.089366</item>
+    </string-array>
+
+    <!-- The default refresh rate. Redfin manages this using the peak refresh rate setting, so set
+         this value to 0 so it has no effect. -->
+    <integer name="config_defaultRefreshRate">0</integer>
+
+    <!-- The default peak refresh rate. -->
+    <integer name="config_defaultPeakRefreshRate">90</integer>
+
+    <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
+    <integer name="config_shutdownBatteryTemperature">600</integer>
+
+    <!-- Whether or not we should show the option to show battery percentage -->
+    <bool name="config_battery_percentage_setting_available">true</bool>
+
+    <!-- Whether or not wcg mode should be enabled on this device -->
+    <bool name="config_enableWcgMode">true</bool>
+
+    <!-- Whether the display cutout region of the main built-in display should be forced to
+         black in software (to avoid aliasing or emulate a cutout that is not physically existent).
+     -->
+    <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+
+    <!-- An array of device capabilities defined by GSMA SGP.22 v2.2.2, and their corresponding major
+     version. -->
+     <string-array translatable="false" name="config_telephonyEuiccDeviceCapabilities">
+          <item>"gsm,9"</item>
+          <item>"utran,9"</item>
+          <item>"cdma1x,1"</item>
+          <item>"hrpd,3"</item>
+          <item>"ehrpd,12"</item>
+          <item>"eutran,15"</item>
+          <item>"nrepc,15"</item>
+          <item>"nr5gc,15"</item>
+          <item>"eutran5gc,15"</item>
+     </string-array>
+
+    <!-- Display cutout configuration -->
+    <string translatable="false" name="config_mainBuiltInDisplayCutout">
+      <!-- The hole punch dimensions are this:
+      M 42,77 a 39,39 0 1,0 78,0 a 39,39 0 1,0 -78,0
+      but using a radius 40 circle for now to see the antialiasing.
+      -->
+        M 41,77 a 40,40 0 1 0 80,0 40,40 0 1 0 -80,0 Z
+
+        @left
+    </string>
+
+    <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
+        M 0.0,0.0
+        h 145
+        v 136
+        h -145
+        Z
+        @left
+    </string>
+
+    <!-- Radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">108px</dimen>
+
+    <!-- Top adjustment for the software rounded corners since corners are not perfectly
+        round. This value is used when retrieving the "radius" of the rounded corner in cases
+        where the exact bezier curve cannot be retrieved. This value will be subtracted from
+        rounded_corner_radius to more accurately provide a "radius" for the rounded corners.-->
+    <dimen name="rounded_corner_radius_adjustment">8px</dimen>
+
+    <!-- Height of the status bar.
+         Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+         -->
+    <dimen name="status_bar_height_default">28dp</dimen>
+    <dimen name="status_bar_height_portrait">136px</dimen>
+    <dimen name="status_bar_height_landscape">28dp</dimen>
+
+    <!-- Not allow to switch to higher refresh rate when display brightness setting is
+         equal or less than this value -->
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
+        <item>10</item> <!-- 33% UI brightness -->
+        <item>14</item> <!-- 40% UI brightness -->
+    </integer-array>
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
+        <item>-1</item>
+        <item>20</item>
+    </integer-array>
+
+    <!-- default refresh rate in the zone defined by birghtness and ambient thresholds -->
+    <integer name="config_defaultRefreshRateInZone">90</integer>
+
+    <!-- Switch to fixed refresh rate when display brightness setting is
+         equal or more than this value -->
+    <integer-array name="config_highDisplayBrightnessThresholdsOfFixedRefreshRate">
+        <item>255</item> <!-- 100% UI brightness -->
+    </integer-array>
+
+    <integer-array name="config_highAmbientBrightnessThresholdsOfFixedRefreshRate">
+        <item>50000</item>
+    </integer-array>
+
+    <!-- default refresh rate in the high zone defined by birghtness and ambient thresholds -->
+    <integer name="config_fixedRefreshRateInHighZone">60</integer>
+
+    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
+     when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
+     where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
+     and Strength as defined in Authenticators.java -->
+    <string-array name="config_biometric_sensors" translatable="false" >
+        <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
+    </string-array>
+
+    <!-- A string config in svg path format for the main display shape.
+         (@see https://www.w3.org/TR/SVG/paths.html#PathData).
+
+         This config must be set unless:
+         1. {@link Configuration#isScreenRound} is true which means the display shape is circular
+            and the system will auto-generate a circular shape.
+         2. The display has no rounded corner and the system will auto-generate a rectangular shape.
+         (@see DisplayShape#createDefaultDisplayShape)
+
+         Note: If the display supports multiple resolutions, please define the path config based on
+         the highest resolution so that it can be scaled correctly in each resolution. -->
+    <string name="config_mainDisplayShape">M 0 0 L 0 2340 L 1080 2340 L 1080 0 L 1079.9258 0 L 1079.9961 216 C 1079.9961 187.36006 1080.1276 148.13971 1078.7676 119.50977 C 1078.3576 110.89977 1077.7959 102.31975 1076.8359 93.759766 C 1076.0059 86.30978 1074.8876 78.950375 1073.0977 71.650391 C 1071.3377 64.490405 1068.9864 57.68983 1065.6465 51.089844 C 1061.6565 43.189863 1056.5277 36.09983 1050.2578 29.839844 C 1043.9979 23.579856 1036.9077 18.460695 1029.0078 14.470703 C 1022.3979 11.140709 1015.5974 8.789059 1008.4375 7.0390625 C 1001.1376 5.2490661 993.77823 4.1307796 986.31836 3.3007812 C 977.74852 2.3407832 969.16846 1.7791398 960.55859 1.3691406 C 931.8991 0.00914337 892.65949 0.15039062 864 0.15039062 L 1079.9258 0 L 0.07421875 0 L 216 0.15039062 C 187.34051 0.15039063 148.1009 0.00914337 119.44141 1.3691406 C 110.83154 1.7791398 102.25149 2.3407832 93.681641 3.3007812 C 86.22177 4.1307796 78.862373 5.2490661 71.5625 7.0390625 C 64.402625 8.7890591 57.602072 11.140709 50.992188 14.470703 C 43.092325 18.460695 36.002077 23.579856 29.742188 29.839844 C 23.472297 36.09983 18.343447 43.18986 14.353516 51.089844 C 11.013574 57.68983 8.6623129 64.490405 6.9023438 71.650391 C 5.1123749 78.950375 3.994048 86.30978 3.1640625 93.759766 C 2.2040793 102.31975 1.6424147 110.89977 1.2324219 119.50977 C -0.12755439 148.13971 0.00390625 187.36006 0.00390625 216 L 0.07421875 0 L 0 0 z M 0.00390625 2103 C 0.00390625 2132.1097 -0.10716124 2185.6894 0.96484375 2214.7891 C 1.3355369 2224.8589 1.8673045 2234.8788 3.0996094 2244.8887 C 4.1615956 2253.4486 5.7431471 2261.7689 8.4882812 2269.9688 C 11.253453 2278.2185 14.961912 2285.7476 19.871094 2292.9375 C 25.551717 2301.2774 32.563821 2308.6366 40.628906 2314.7266 C 56.218063 2326.5064 73.40016 2331.8675 92.195312 2334.8574 C 100.87153 2336.2374 109.5681 2337.0773 118.31445 2337.6973 C 128.20295 2338.3973 138.10124 2338.8074 148.00977 2339.1074 C 180.89126 2340.0974 227.1185 2339.998 260 2339.998 L 0.00390625 2339.998 L 0.00390625 2103 z M 1079.9961 2103 L 1079.9961 2339.998 L 820 2339.998 C 852.8815 2339.998 899.10874 2340.0974 931.99023 2339.1074 C 941.89876 2338.8074 951.79705 2338.3973 961.68555 2337.6973 C 970.4319 2337.0773 979.12847 2336.2374 987.80469 2334.8574 C 1006.5999 2331.8675 1023.7819 2326.5064 1039.3711 2314.7266 C 1047.4362 2308.6366 1054.4483 2301.2774 1060.1289 2292.9375 C 1065.0381 2285.7476 1068.7465 2278.2185 1071.5117 2269.9688 C 1074.2569 2261.7689 1075.8384 2253.4486 1076.9004 2244.8887 C 1078.1327 2234.8788 1078.6645 2224.8589 1079.0352 2214.7891 C 1080.1072 2185.6894 1079.9961 2132.1097 1079.9961 2103 z</string>
+</resources>
